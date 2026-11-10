@@ -131,6 +131,7 @@ pub enum ResourceType {
     IQMServer,
     OQTOPUS,
     MaestroLocal,
+    QuantinuumNexusCloud,
 }
 impl From<ResourceType> for crate::models::ResourceType {
     fn from(value: ResourceType) -> Self {
@@ -148,6 +149,7 @@ impl From<ResourceType> for crate::models::ResourceType {
             ResourceType::IQMServer => crate::models::ResourceType::IQMServer,
             ResourceType::OQTOPUS => crate::models::ResourceType::OQTOPUS,
             ResourceType::MaestroLocal => crate::models::ResourceType::MaestroLocal,
+            ResourceType::QuantinuumNexusCloud => crate::models::ResourceType::QuantinuumNexusCloud,
         }
     }
 }
@@ -288,6 +290,9 @@ impl PyQuantumResource {
                 crate::models::ResourceType::IQMServer => ResourceType::IQMServer,
                 crate::models::ResourceType::OQTOPUS => ResourceType::OQTOPUS,
                 crate::models::ResourceType::MaestroLocal => ResourceType::MaestroLocal,
+                crate::models::ResourceType::QuantinuumNexusCloud => {
+                    ResourceType::QuantinuumNexusCloud
+                }
             }),
             Err(e) => Err(to_py_err(e)),
         }
@@ -426,6 +431,7 @@ impl PyResourceDef {
             crate::models::ResourceType::IQMServer => ResourceType::IQMServer,
             crate::models::ResourceType::OQTOPUS => ResourceType::OQTOPUS,
             crate::models::ResourceType::MaestroLocal => ResourceType::MaestroLocal,
+            crate::models::ResourceType::QuantinuumNexusCloud => ResourceType::QuantinuumNexusCloud,
         }
     }
 

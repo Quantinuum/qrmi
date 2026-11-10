@@ -74,6 +74,12 @@ pub enum Payload {
         /// Configuration in json format
         config: String,
     },
+    /// Payload for Quantinuum Nexus Cloud
+    QuantinuumNexusCloud {
+        program: Vec<u8>,
+        program_type: String,
+        n_shots: u64,
+    },
 }
 #[cfg(feature = "pyo3")]
 define_stub_info_gatherer!(stub_info);

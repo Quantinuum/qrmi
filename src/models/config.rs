@@ -46,7 +46,10 @@ pub enum ResourceType {
     OQTOPUS,
     /// Maestro Local
     MaestroLocal,
+    // Quantinuum Nexus Cloud
+    QuantinuumNexusCloud,
 }
+
 impl<'de> serde::Deserialize<'de> for ResourceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -66,11 +69,13 @@ impl<'de> serde::Deserialize<'de> for ResourceType {
                     "iqm-server",
                     "oqtopus",
                     "maestro-local",
+                    "quantinuum-nexus-cloud",
                 ],
             )
         })
     }
 }
+
 impl ResourceType {
     pub fn as_str(&self) -> &str {
         match self {
@@ -83,6 +88,7 @@ impl ResourceType {
             ResourceType::IQMServer => "iqm-server",
             ResourceType::OQTOPUS => "oqtopus",
             ResourceType::MaestroLocal => "maestro-local",
+            ResourceType::QuantinuumNexusCloud => "quantinuum-nexus-cloud",
         }
     }
 
@@ -104,6 +110,7 @@ impl ResourceType {
             "iqm-server" => Some(ResourceType::IQMServer),
             "oqtopus" => Some(ResourceType::OQTOPUS),
             "maestro-local" => Some(ResourceType::MaestroLocal),
+            "quantinuum-nexus-cloud" => Some(ResourceType::QuantinuumNexusCloud),
             _ => None,
         }
     }

@@ -24,6 +24,7 @@ pub mod maestro;
 #[cfg(unix)]
 pub mod oqtopus;
 pub mod pasqal;
+pub mod quantinuum;
 pub mod resource_provider;
 pub use resource_provider::create_provider;
 pub use resource_provider::ResourceProvider;

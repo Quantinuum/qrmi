@@ -96,3 +96,17 @@ rpmbuild/
 docs/_build/
 docs/_build_linkcheck/
 docs/_api/
+
+
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+devenv.nix
+devenv.lock
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml

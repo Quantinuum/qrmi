@@ -21,6 +21,7 @@ use crate::models::ResourceType;
 #[cfg(unix)]
 use crate::oqtopus::Oqtopus;
 use crate::pasqal::{PasqalCloud, PasqalLocal};
+use crate::quantinuum::cloud::QuantinuumNexusCloud;
 use crate::QuantumResource;
 
 #[cfg(not(unix))]
@@ -59,6 +60,7 @@ pub(crate) fn create_resource(
         ResourceType::OQTOPUS => Box::new(Oqtopus::new(resource_id)?),
         #[cfg(not(unix))]
         ResourceType::OQTOPUS => return Err(oqtopus_unsupported()),
+        ResourceType::QuantinuumNexusCloud => Box::new(QuantinuumNexusCloud::new(resource_id)?),
     })
 }
 
@@ -91,6 +93,9 @@ pub(crate) fn create_resource_from_config(
         ResourceType::MaestroLocal => Box::new(MaestroLocal::from_config(resource_id, config)?),
         #[cfg(not(unix))]
         ResourceType::MaestroLocal => return Err(maestro_unsupported()),
+        ResourceType::QuantinuumNexusCloud => {
+            Box::new(QuantinuumNexusCloud::from_config(resource_id, config)?)
+        }
     })
 }
 

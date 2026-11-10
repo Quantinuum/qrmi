@@ -42,6 +42,7 @@ quantum-system-api = { path = "dependencies/quantum_system_client" }
 quantum_compute_client = { path = "dependencies/quantum_compute_client" }
 pasqal-cloud-api = { path = "dependencies/pasqal_cloud_client" }
 pasqal-local-api = { path = "dependencies/pasqal_local_client" }
+quantinuum-nexus-client = { path = "../quantinuum-nexus-client", default-features = false }
 alice-bob-felis = { path = "dependencies/alice_bob_felis_client" }
 iqm-server-api = { path = "dependencies/iqm_client" }
 anyhow = { version = "1.0.97", features = ["backtrace"] }
